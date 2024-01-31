@@ -4,9 +4,9 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.AutoCommandChooser;
 import frc.robot.commands.AutoDriveCommand;
@@ -34,18 +34,20 @@ public class RobotContainer {
    */
   public RobotContainer() {
 
-    WPI_TalonFX leftFalconMaster = new WPI_TalonFX(Constants.DRIVE_MOTOR_LEFT_1);
 
-    WPI_TalonFX[] leftFalconSlaves = new WPI_TalonFX[] {
-        new WPI_TalonFX(Constants.DRIVE_MOTOR_LEFT_2) };
+    // Spark[] leftNeos = new Spark[] {
 
-    WPI_TalonFX rightFalconMaster = new WPI_TalonFX(Constants.DRIVE_MOTOR_RIGHT_1);
+    //     new Spark(Constants.DRIVE_MOTOR_LEFT_1),
+    //     new Spark(Constants.DRIVE_MOTOR_LEFT_2)
+    //   };
 
-    WPI_TalonFX[] rightFalconSlaves = new WPI_TalonFX[] {
-        new WPI_TalonFX(Constants.DRIVE_MOTOR_RIGHT_2) };
+    // Spark[] rightNeos = new Spark[] {
+    //     new Spark(Constants.DRIVE_MOTOR_RIGHT_1), 
+    //     new Spark(Constants.DRIVE_MOTOR_RIGHT_2) 
+    //   };
 
-    m_driveSub = new DriveSubsystem(leftFalconMaster, leftFalconSlaves, rightFalconMaster, rightFalconSlaves,
-        Constants.IS_RIGHT_DRIVE_INVERTED, Constants.DEADBAND);
+    // m_driveSub = new DriveSubsystem(rightNeos,leftNeos,
+    //     Constants.IS_RIGHT_DRIVE_INVERTED, Constants.DEADBAND);
 
     XboxController controller = new XboxController(Constants.CONTROLLER_PORT);
 
